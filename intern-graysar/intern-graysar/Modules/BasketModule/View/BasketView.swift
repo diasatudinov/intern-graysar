@@ -49,10 +49,11 @@ class BasketView: UIViewController {
     
     let bannerLabel: UILabel = {
         let bannerLabel = UILabel()
-        bannerLabel.text = "Бесплатная доставка от 8000 ₸"
+        bannerLabel.text = "У вас недостаточно средств, ваш баланс 45 000₸"
         bannerLabel.textColor = .white
         bannerLabel.textAlignment = .center
         bannerLabel.font = .systemFont(ofSize: 20, weight: .semibold)
+        bannerLabel.numberOfLines = 0
         return bannerLabel
     }()
     
@@ -79,7 +80,13 @@ class BasketView: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             self.hideActivityIndicator()
             self.button.setTitle("Перейти к оплате \(self.basketManager.summa)", for: .normal)
-            TheAppRouter.shared.move(to: .payment, type: .push(animated: true))
+            if self.basketManager.summa < 45000 {
+                TheAppRouter.shared.move(to: .payment(basketManager: self.basketManager), type: .push(animated: true))
+            } else {
+                self.button.isHidden = false
+                self.bannerView.isHidden = self.basketManager.summa < 45000
+                self.collectionView.contentInset.top = self.bannerView.isHidden ? 0 : 75
+            }
         }
        // basketManager.clearCart()
     }
@@ -89,9 +96,10 @@ class BasketView: UIViewController {
             bannerView.isHidden = true
             button.isHidden = true
         } else {
+            bannerView.isHidden = true
             button.isHidden = false
-            bannerView.isHidden = basketManager.summa > 8000
-            collectionView.contentInset.top = bannerView.isHidden ? 0 : 50
+//            bannerView.isHidden = basketManager.summa < 45000
+            collectionView.contentInset.top = bannerView.isHidden ? 0 : 75
         }
     }
     
@@ -138,7 +146,7 @@ class BasketView: UIViewController {
             bannerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
             bannerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
             bannerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            bannerView.heightAnchor.constraint(equalToConstant: 42)
+            bannerView.heightAnchor.constraint(equalToConstant: 70)
         ])
     }
     

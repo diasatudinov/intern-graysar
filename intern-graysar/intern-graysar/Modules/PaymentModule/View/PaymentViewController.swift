@@ -9,6 +9,16 @@ import UIKit
 
 class PaymentViewController: UIViewController {
 
+    var basketManager: BasketManager
+    
+    init(basketManager: BasketManager) {
+        self.basketManager = basketManager
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     let successLabel: UILabel = {
         let label = UILabel()
@@ -38,9 +48,9 @@ class PaymentViewController: UIViewController {
     }
     
     @objc func backButtonTapped() {
-        // Действие для кнопки назад
-        //navigationController?.popViewController(animated: true)
+        basketManager.clearCart()
         TheAppRouter.shared.back()
+        
     }
     
     func setup() {

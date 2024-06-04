@@ -114,13 +114,15 @@ struct ProductDetailsUIView: View {
                 HStack{
                     if productCount == 0 {
                         Button{
-                            basketManager.addItem(item)
-                            productCount += item.minQuantity
-                            if item.minQuantityText == "кг" {
-                                kgPrice += Double(item.price)
+                            if item.minQuantity == 0 {
+                                basketManager.addItem(item)
+                                productCount = 1
+                                basketManager.addToSumma(item, summa: Double(item.price))
+                            } else {
+                                basketManager.addItem(item)
+                                productCount += item.minQuantity
+                                basketManager.addToSumma(item, summa: Double(item.price))
                             }
-                            basketManager.addToSumma(summa: Double(item.price))
-                            
                             
                         } label: {
                             
@@ -150,18 +152,21 @@ struct ProductDetailsUIView: View {
                         HStack {
                             
                             Button{
-                                if productCount > 0 {
-                                    basketManager.removeItem(item)
-                                    productCount -= item.minQuantity
-                                    if item.minQuantityText == "кг" {
-                                        kgPrice -= Double(item.price)
+                                if item.minQuantity == 0 {
+                                    if productCount > 0 {
+                                        basketManager.removeItem(item)
+                                        productCount = 0
+                                        basketManager.subFromSumma(item, summa: Double(item.price))
+                                        
                                     }
-                                    
-                                    
-                                    basketManager.subFromSumma(summa: Double(item.price))
-                                    
+                                } else {
+                                    if productCount > 0 {
+                                        basketManager.removeItem(item)
+                                        productCount -= item.minQuantity
+                                        basketManager.subFromSumma(item, summa: Double(item.price))
+                                        
+                                    }
                                 }
-                                
                             } label: {
                                 
                                 HStack(spacing: 10) {
@@ -189,15 +194,14 @@ struct ProductDetailsUIView: View {
                             }
                             Spacer()
                             Button{
-                                basketManager.addItem(item)
-                                productCount += item.minQuantity
-                                if item.minQuantityText == "кг" {
-                                    kgPrice += Double(item.price)
+                                if item.minQuantity == 0 {
+                                    
+                                } else {
+                                    basketManager.addItem(item)
+                                    productCount += item.minQuantity
+                                    basketManager.addToSumma(item, summa: Double(item.price))
+                                    
                                 }
-                                
-                                    basketManager.addToSumma(summa: Double(item.price))
-                                
-                                
                             } label: {
                                 
                                 HStack(spacing: 10) {

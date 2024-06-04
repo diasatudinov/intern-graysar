@@ -65,7 +65,7 @@ struct ProductCellUIView: View {
                             productCount += item.minQuantity
                             basketManager.addItem(item)
                             
-                            basketManager.addToSumma(summa: Double(item.price))
+                            basketManager.addToSumma(item, summa: Double(item.price))
                             
                             print(item.count)
                         } label: {
@@ -84,10 +84,17 @@ struct ProductCellUIView: View {
                         HStack {
                             Spacer()
                             Button{
-                                productCount -= item.minQuantity
-                                basketManager.removeItem(item)
-                                basketManager.subFromSumma(summa: Double(item.price))
-                                print(item.count)
+                                if item.minQuantity  == 0 {
+                                    productCount = 0
+                                    basketManager.removeItem(item)
+                                    basketManager.subFromSumma(item, summa: Double(item.price))
+                                    print(item.count)
+                                } else {
+                                    productCount -= item.minQuantity
+                                    basketManager.removeItem(item)
+                                    basketManager.subFromSumma(item, summa: Double(item.price))
+                                    print(item.count)
+                                }
                             } label: {
                                 
                                 HStack(spacing: 10) {
@@ -102,7 +109,7 @@ struct ProductCellUIView: View {
                                 if item.minQuantity  == 1 {
                                     Text("\(productCount, specifier: "%.0f")").font(.system(size: 15)).foregroundColor(.white).bold()
                                 } else {
-                                    Text("\(productCount, specifier: "%.1f")").font(.system(size: 15)).foregroundColor(.white).bold()
+                                    Text("\(productCount, specifier: "%.0f")").font(.system(size: 15)).foregroundColor(.white).bold()
                                 }
                                 
                                 
@@ -112,11 +119,15 @@ struct ProductCellUIView: View {
                             }
                             Spacer()
                             Button{
-                                productCount += item.minQuantity
-                                basketManager.addItem(item)
-                                basketManager.addToSumma(summa: Double(item.price))
-
-                                print(item.count)
+                                if item.minQuantity  == 0 {
+                                    
+                                } else {
+                                    productCount += item.minQuantity
+                                    basketManager.addItem(item)
+                                    basketManager.addToSumma(item, summa: Double(item.price))
+                                    
+                                    print(item.count)
+                                }
                             } label: {
                                 
                                 HStack(spacing: 10) {
