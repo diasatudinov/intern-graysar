@@ -129,17 +129,7 @@ struct ProductDetailsUIView: View {
                             HStack(spacing: 7) {
                                 VStack{
                                     Text("\(item.price) ₸").font(.system(size: 18)).foregroundColor(.white).bold()
-                                    
-                                    if item.minQuantityText == "кг"{
-                                        if item.minQuantity  == 1 {
-                                            Text("за \(item.minQuantity, specifier: "%.0f") кг").font(.system(size: 15)).foregroundColor(.white).bold()
-                                        } else {
-                                            Text("за \(item.minQuantity, specifier: "%.1f") кг").font(.system(size: 15)).foregroundColor(.white).bold()
-                                        }
-                                    } else {
-                                        Text("за шт").font(.system(size: 10)).foregroundColor(.white).bold()
-                                        
-                                    }
+                                    Text("за шт").font(.system(size: 10)).foregroundColor(.white).bold()
                                 }
                                 Image(systemName: "plus").foregroundColor(.white).font(.system(size: 25))
                                 
@@ -176,21 +166,8 @@ struct ProductDetailsUIView: View {
                             }
                             Spacer()
                             VStack {
-                                if item.minQuantityText == "кг"{
-                                    Text("\(kgPrice, specifier: "%.0f") ₸").font(.system(size: 25)).foregroundColor(.white).bold()
-                                } else {
-                                    Text("\(productCount*Double(item.price), specifier: "%.0f") ₸").font(.system(size: 25)).foregroundColor(.white).bold()
-                                }
-                                if item.minQuantityText == "кг"{
-                                    if item.minQuantity  == 1 {
-                                        Text("за \(productCount, specifier: "%.0f") кг").font(.system(size: 15)).foregroundColor(.white).bold()
-                                    } else {
-                                        Text("за \(productCount, specifier: "%.1f") кг").font(.system(size: 15)).foregroundColor(.white).bold()
-                                    }
-                                } else {
-                                    Text("\(productCount, specifier: "%.0f") шт").font(.system(size: 10)).foregroundColor(.white).bold()
-                                    
-                                }
+                                Text("\(productCount*Double(item.price), specifier: "%.0f") ₸").font(.system(size: 25)).foregroundColor(.white).bold()
+                                Text("\(productCount, specifier: "%.0f") шт").font(.system(size: 10)).foregroundColor(.white).bold()
                             }
                             Spacer()
                             Button{
@@ -225,19 +202,15 @@ struct ProductDetailsUIView: View {
         }.onAppear {
             isFavorite = item.isFavorite
             productCount = item.count
-            if item.minQuantityText == "кг" {
-                
-                kgPrice = Double(item.price) * item.count/item.minQuantity
-            }
         }
         .onChange(of: item.isFavorite) { newValue in
-           
+        
             print(item.isFavorite)
             print(newValue)
             isFavorite = newValue
             item.isFavorite = newValue
+            
         }
-        
     }
 }
 

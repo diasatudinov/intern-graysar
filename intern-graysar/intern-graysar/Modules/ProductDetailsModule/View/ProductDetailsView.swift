@@ -13,9 +13,7 @@ class ProductDetailsView: UIViewController, ViewTodayHostable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         navigationController?.navigationBar.isHidden = true
-        //self.add(hostableView: ProductDetailsUIView())
         
         
     }
@@ -23,7 +21,6 @@ class ProductDetailsView: UIViewController, ViewTodayHostable {
     public func setup(item: MenuItem, basketManager: BasketManager) {
         
         self.add(hostableView: ProductDetailsUIView(item: item).environmentObject(basketManager))
-        //self.addFeel(hostableView: SourcesViewTextOne(image: image, group: group))
     }
     
 }

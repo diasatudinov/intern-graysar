@@ -12,7 +12,6 @@ import SwiftUI
 class BasketViewCell: UICollectionViewCell {
     
     private var hostingController: UIHostingController<BasketUIViewCell>?
-    //let basketManager: BasketManager? = nil
     func setupHostingController(item: MenuItem, basketManager: BasketManager) {
         
         let basketUIViewCell = BasketUIViewCell(item: item, basketManager: basketManager)
