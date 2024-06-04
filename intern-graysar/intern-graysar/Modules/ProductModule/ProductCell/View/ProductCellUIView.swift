@@ -111,11 +111,6 @@ struct ProductCellUIView: View {
                                 } else {
                                     Text("\(productCount, specifier: "%.0f")").font(.system(size: 15)).foregroundColor(.white).bold()
                                 }
-                                
-                                
-                                if item.minQuantityText == "кг"{
-                                    Text("кг").font(.system(size: 10)).foregroundColor(.white).bold()
-                                }
                             }
                             Spacer()
                             Button{
@@ -129,11 +124,17 @@ struct ProductCellUIView: View {
                                     print(item.count)
                                 }
                             } label: {
-                                
-                                HStack(spacing: 10) {
-                                    Image(systemName: "plus").foregroundColor(.white).font(.system(size: 17))
+                                if item.minQuantity  == 0 {
+                                    HStack(spacing: 10) {
+                                        Image(systemName: "plus").foregroundColor(Color.green).font(.system(size: 17))
+                                    }
+                                    .padding(7)
+                                } else {
+                                    HStack(spacing: 10) {
+                                        Image(systemName: "plus").foregroundColor(.white).font(.system(size: 17))
+                                    }
+                                    .padding(7)
                                 }
-                                .padding(7)
                             }
                             Spacer()
                         }
@@ -159,7 +160,3 @@ struct ProductCellUIView: View {
         
     }
 }
-
-//#Preview {
-//    ProductCellUIView(image: "", name: "", additionalDescription: "", price: 0, minQuantity: 1.0, minQuantityText: "")
-//}

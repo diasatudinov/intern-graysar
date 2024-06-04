@@ -86,15 +86,11 @@ final class TheAppRouter {
                 return Builder.createTabBarController()
             case .address:
                 let vc = AddressView()
-                if #available(iOS 15.0, *) {
-                    if let sheet = vc.sheetPresentationController{
-                        sheet.detents = [.medium()]
-                    }
-                    return vc
-                } else {
-                    // Fallback on earlier versions
-                    return vc
+                if let sheet = vc.sheetPresentationController {
+                    sheet.detents = [.medium()]
                 }
+                return vc
+                
 
             case .productDetails(item: let item, basketManager: let basketManager):
                 let productDetailsVC = ProductDetailsView()

@@ -203,9 +203,16 @@ struct ProductDetailsUIView: View {
                                     
                                 }
                             } label: {
-                                
-                                HStack(spacing: 10) {
-                                    Image(systemName: "plus").foregroundColor(.white).font(.system(size: 25))
+                                if item.minQuantity  == 0 {
+                                    HStack(spacing: 10) {
+                                        Image(systemName: "plus").foregroundColor(.green).font(.system(size: 25))
+                                    }
+                                    
+                                } else {
+                                    
+                                    HStack(spacing: 10) {
+                                        Image(systemName: "plus").foregroundColor(.white).font(.system(size: 25))
+                                    }
                                 }
                                 
                             }
