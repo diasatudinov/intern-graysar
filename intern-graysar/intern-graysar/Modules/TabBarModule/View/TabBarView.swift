@@ -22,10 +22,6 @@ class TabBarView: UITabBarController {
         tabs.enumerated().forEach{
             let offsets: [Double] = [-100, 100]
             let tabButton = createTabBarButton(icon: $0.element, tag: $0.offset, offsetX: offsets[$0.offset], btnSizeH: $0.offset == 1 ? 27:25)
-            
-            if tabButton.tag == 0 {
-                tabButton.tintColor = .systemGreen
-            }
             view.addSubview(tabButton)
         }
         
@@ -51,9 +47,7 @@ class TabBarView: UITabBarController {
         self.view.subviews.compactMap { $0 as? UIButton }.forEach {
             $0.tintColor = .black
         }
-        
-        sender.tintColor = .systemGreen
-        
+        self.view.tintColor = .systemGreen
         self.selectedIndex = sender.tag
     }
     
