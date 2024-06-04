@@ -73,13 +73,13 @@ struct BasketUIViewCell: View {
                                     kgPrice -= Double(item.price)
                                 }
                                 
-                                basketManager.subFromSumma(summa: Double(item.price))
+                                basketManager.subFromSumma(item, summa: Double(item.price))
                                 
                                 print(basketManager.summa)
                                 
                             }
                         } label: {
-                            if productCount == item.minQuantity {
+                            if productCount == item.minQuantity || (item.minQuantity == 0 && productCount == 1){
                                 HStack(spacing: 10) {
                                     Image(systemName: "trash").foregroundColor(.black).font(.system(size: 10))
                                 }
@@ -112,9 +112,11 @@ struct BasketUIViewCell: View {
                                 kgPrice += Double(item.price)
                             }
                             
-                            
-                            basketManager.addToSumma(summa: Double(item.price))
-                            
+                            if item.minQuantity == 0{
+                                
+                            } else {
+                                basketManager.addToSumma(item, summa: Double(item.price))
+                            }
                             print(basketManager.summa)
                         } label: {
                             
