@@ -49,12 +49,12 @@ struct ProductCellUIView: View {
                 }.frame(width: cellWidth,height: 25)
                 
                 HStack(spacing: 0) {
-                    Text("\(item.price) ₸/\(item.minQuantityText)").font(.system(size: 10)).foregroundColor(.gray.opacity(0.6))
+                    Text("\(item.price) ₸\(item.minQuantityText)").font(.system(size: 10)).foregroundColor(.gray.opacity(0.6))
                     Circle().frame(width: 2, height: 2).padding(.horizontal,5).foregroundColor(.green)
                     if item.minQuantity  == 1 {
                         Text("\(item.minQuantity, specifier: "%.0f") \(item.minQuantityText)").font(.system(size: 10)).foregroundColor(.green)
                     } else {
-                        Text("\(item.minQuantity, specifier: "%.1f") \(item.minQuantityText)").font(.system(size: 10)).foregroundColor(.green)
+                        Text(" \(item.minQuantityText)").font(.system(size: 10)).foregroundColor(.green)
                     }
                     Spacer()
                 }.padding(.bottom, 15).frame(width: cellWidth)
