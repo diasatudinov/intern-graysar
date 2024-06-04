@@ -43,7 +43,6 @@ struct MainMenuUIView: View {
                             HStack{
                                 ForEach(items) { item in
                                     ProductCellUIView(item: item)
-                                        //.frame(height: UIScreen.main.bounds.height/3)
                                         .onTapGesture {
                                             print(item.name)
                                             print(basketManager.items)

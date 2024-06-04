@@ -13,40 +13,33 @@ struct AddressUIView: View {
             HStack {
                 Spacer()
                 VStack(alignment: .center){
-                    Text("Доставка")
+                    Text("Баланс")
                         .font(.system(size: 12, weight: .bold))
-                        .padding(5)
-                    Text("Сегодня 07:00-09:00")
-                        .font(.system(size: 11))
-                        .foregroundColor(.secondary)
                 }.padding()
                 Spacer()
             }
             Spacer()
             List {
                 Button{
-                    print("Добавить новый адрес")
+                    print("Пополнить баланс")
                 } label: {
                     HStack(spacing: 10) {
                         Image(systemName: "plus")
                         VStack(alignment: .leading) {
-                            Text("Добавить новый адрес")
+                            Text("Пополнить баланс")
                                 .font(.system(size: 12))
-                            Text("Весь список адресов")
-                                .font(.system(size: 10))
-                                .foregroundColor(.secondary)
                         }
                         Spacer()
                     }
                 }
                 
                 Button{
-                    print("Выбрать другой город")
+                    print("Поменять способ оплаты")
                 } label: {
                     HStack(spacing: 10) {
                         Image(systemName: "list.bullet")
                         VStack(alignment: .leading) {
-                            Text("Выбрать другой город")
+                            Text("Поменять способ оплаты")
                                 .font(.system(size: 12))
                         }
                     }

@@ -30,17 +30,6 @@ struct ProductDetailsUIView: View {
                 }
                 
                 Spacer()
-                Button {
-                    isFavorite.toggle()
-                    basketManager.favoriteItemToggle(item)
-                } label: {
-                    Image(systemName: isFavorite ? "heart.fill" : "heart")
-                        .resizable()
-                        .scaledToFit()
-                        .foregroundColor(isFavorite ? .red : .black)
-                        .frame(width: 22)
-                        .padding()
-                }
             }
             
             ScrollView {
@@ -62,7 +51,7 @@ struct ProductDetailsUIView: View {
                         .padding(.horizontal, 5)
                         .padding(.bottom, 5)
                     
-                    Text("\(item.price) ₸/\(item.minQuantityText)")
+                    Text("\(item.price) ₸\(item.minQuantityText)")
                         .font(.system(size: 15))
                         .multilineTextAlignment(.center)
                         .foregroundColor(.gray.opacity(0.7))

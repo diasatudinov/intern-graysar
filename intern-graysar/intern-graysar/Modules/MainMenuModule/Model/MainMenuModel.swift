@@ -16,8 +16,8 @@ class PositionData: Identifiable {
     
     static func getMockData() -> [MenuItem] {
         [
-            MenuItem(image: "item3", name: "Филе индейки Arbuz Select 0,9 кг замороженное", description: "Это наша грудка индейки шоковой заморозки. Натуральная грудка фермерской индейки, выращенной в экологически чистом районе Алматинской области.", additionalDescription: "", country: "Казахстан", storageConditions: "90 дней, -18°С", price: 5770, minQuantity: 1, minQuantityText: "шт"),
-            MenuItem(image: "item3", name: "Самса Arbuz Select с рубленой говядиной 500 г", description: "Самса с рубленой говядиной - это вкусное сочетание нежного мяса и хрустящего теста, которое наверняка порадует ваши вкусовые рецепторы.", additionalDescription: "", country: "Казахстан", storageConditions: "90 дней, -18°С", price: 2590, minQuantity: 1, minQuantityText: "шт")
+            MenuItem(image: "item 1", name: "Футболка черная без принта", description: "Стильная футболка с оригинальным принтом. Отличный выбор для повседневной носки", additionalDescription: "", country: "Казахстан", storageConditions: "Хранить в тёмном месте при комнатной температуре. Беречь от влаги и прямых солнечных лучей.", price: 14990, minQuantity: 1, minQuantityText: "/шт"),
+            MenuItem(image: "item 3", name: "Английский язык для начинающих", description: "Курс английского языка для тех, кто начинает изучать язык с нуля. Включает в себя основы грамматики, лексики и разговорной практики. Занятия проходят онлайн или офлайн. Есть возможность выбора преподавателя. В конце курса выдаётся сертификат", additionalDescription: "", country: "Казахстан", storageConditions: "", price: 29990, minQuantity: 0, minQuantityText: "")
         ]
     }
 }
