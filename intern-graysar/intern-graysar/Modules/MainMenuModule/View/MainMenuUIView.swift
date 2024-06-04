@@ -57,7 +57,7 @@ struct MainMenuUIView: View {
                         }.padding(.bottom, 100)
                         HStack {
                             Spacer()
-                            Text("New products coming soon")
+                            Text("Скоро появятся новые продукты")
                             Spacer()
                         }
                     }

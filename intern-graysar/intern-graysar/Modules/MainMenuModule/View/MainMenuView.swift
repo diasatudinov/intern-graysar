@@ -32,8 +32,7 @@ class MainMenuView: UIViewController, ViewTodayHostable {
 }
 
 extension MainMenuView: MainMenuViewProtocol {
-    func showData() {
-        
+    func showData() { 
     }
     
 }
@@ -45,8 +44,6 @@ class MainMenuCELLView: UIViewController, ViewTodayHostable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        //self.add(hostableView: ProductCellUIView())
     }
 
 }

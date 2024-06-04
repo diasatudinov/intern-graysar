@@ -69,10 +69,6 @@ struct BasketUIViewCell: View {
                             if productCount > 0 {
                                 basketManager.removeItem(item)
                                 productCount -= item.minQuantity
-                                if item.minQuantityText == "кг" {
-                                    kgPrice -= Double(item.price)
-                                }
-                                
                                 basketManager.subFromSumma(item, summa: Double(item.price))
                                 
                                 print(basketManager.summa)
@@ -94,24 +90,13 @@ struct BasketUIViewCell: View {
                         }
                         
                         VStack {
+                            Text("\(productCount, specifier: "%.0f")").font(.system(size: 10)).foregroundColor(.black).bold()
                             
-                            if item.minQuantityText == "кг"{
-                                Text("\(productCount, specifier: "%.1f")").font(.system(size: 10)).foregroundColor(.black).bold()
-                            } else {
-                                Text("\(productCount, specifier: "%.0f")").font(.system(size: 10)).foregroundColor(.black).bold()
-                            }
-                            if item.minQuantityText == "кг"{
-                                    Text("кг").font(.system(size: 10)).foregroundColor(.black).bold()
-                            }
                         }
                         
                         Button{
                             basketManager.addItem(item)
                             productCount += item.minQuantity
-                            if item.minQuantityText == "кг" {
-                                kgPrice += Double(item.price)
-                            }
-                            
                             if item.minQuantity == 0{
                                 
                             } else {
@@ -132,11 +117,9 @@ struct BasketUIViewCell: View {
                     .cornerRadius(10)
                     
                     Spacer()
-                    if item.minQuantityText == "кг"{
-                        Text("\(kgPrice, specifier: "%.0f") ₸").font(.system(size: 15)).foregroundColor(.black).bold()
-                    } else {
-                        Text("\(productCount*Double(item.price), specifier: "%.0f") ₸").font(.system(size: 15)).foregroundColor(.black).bold()
-                    }
+                    
+                    Text("\(productCount*Double(item.price), specifier: "%.0f") ₸").font(.system(size: 15)).foregroundColor(.black).bold()
+                    
                     
                 }
                 
@@ -150,10 +133,7 @@ struct BasketUIViewCell: View {
         .onAppear {
             isFavorite = item.isFavorite
             productCount = item.count
-            if item.minQuantityText == "кг" {
-                
-                kgPrice = Double(item.price) * item.count/item.minQuantity
-            }
+            
         }
         
         

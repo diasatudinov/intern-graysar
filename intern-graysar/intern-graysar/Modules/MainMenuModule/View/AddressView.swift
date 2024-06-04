@@ -16,7 +16,6 @@ class AddressView: UIViewController, ViewTodayHostable {
         navigationController?.navigationBar.isHidden = true
         self.add(hostableView: AddressUIView())
         
-        
     }
     
 }

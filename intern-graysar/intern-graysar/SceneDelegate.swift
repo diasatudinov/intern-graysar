@@ -20,7 +20,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         
         let viewController = TheAppRouter.shared.navigationController
-        //Builder.createTabBarController()
         window.rootViewController = viewController
         window.makeKeyAndVisible()
         self.window = window

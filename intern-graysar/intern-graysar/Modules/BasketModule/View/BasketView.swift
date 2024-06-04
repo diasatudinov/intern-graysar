@@ -76,7 +76,6 @@ class BasketView: UIViewController {
         print("basketManager.summa", basketManager.summa)
         showActivityIndicator()
         
-        // Остановите индикатор через 2 секунды
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             self.hideActivityIndicator()
             self.button.setTitle("Перейти к оплате \(self.basketManager.summa)", for: .normal)
@@ -88,7 +87,6 @@ class BasketView: UIViewController {
                 self.collectionView.contentInset.top = self.bannerView.isHidden ? 0 : 75
             }
         }
-       // basketManager.clearCart()
     }
     
     func updateBannerVisibility() {

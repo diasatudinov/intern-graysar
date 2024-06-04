@@ -52,7 +52,6 @@ class BasketManager: ObservableObject {
             print("ADDITEM IF 0")
             if let index = items.firstIndex(where: { $0.id == item.id }) {
                 items[index].count = 1
-                items.append(item)
             } else {
                 item.count = 1
                 items.append(item)
