@@ -12,18 +12,15 @@ struct HeaderUIView: View {
         ZStack {
             HStack{
                 VStack(alignment: .leading){
-                    Text("Алматы, завтра 07:00-09:00")
-                        .font(.system(size: 14))
-                        .foregroundColor(.black)
-                    Text("улица Розыбакиева, 999, кв 11")
-                        .font(.system(size: 16, weight: .bold))
+                    Text("Ваш баланс: 45 000₸")
+                        .font(.system(size: 20, weight: .semibold))
                         .foregroundColor(.black)
                 }
                 Spacer()
                 Image(systemName: "chevron.down")
                     .foregroundColor(.black)
                     .padding()
-            }
+            }.padding(.horizontal, 5)
         }
     }
 }
