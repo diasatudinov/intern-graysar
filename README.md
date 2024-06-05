@@ -1,5 +1,6 @@
 # intern-graysar
 shop with 2 products, a T-shirt and English courses. 
+Хотел показать что умею работать с обеими фреймворками и написал на UIKit и SwiftUI. 
 
 Приложение состоит из двух экранов, размещенных на UITabViewController:
 
