@@ -8,7 +8,7 @@ shop with 2 products, a T-shirt and English courses.
 
 Навигация в приложений:
 
-Навигация между вьюшками осуществляется с помощью класса TheAppRouter. Который имеет два enum-а Destination и TransitionType. Где TransitionType имеет 3 вида переода это change, present и push. Переход из корзины во вью оплаты выполняется через push, а переходы из главного экрана в экран детальной информации о товаре выполняется через present, так же через present открывается вью после нажатия на хэдер.
+Навигация между вьюшками осуществляется с помощью класса TheAppRouter. Который имеет два enum-а Destination и TransitionType. Где TransitionType имеет 3 вида перехода это change, present и push. Переход из корзины во вью оплаты выполняется через push, а переходы из главного экрана в экран детальной информации о товаре выполняется через present, так же через present открывается вью после нажатия на хэдер.
 
 <img width="700" alt="Снимок экрана 2024-05-18 в 18 10 57" src="https://github.com/diasatudinov/ios-arbuz.kz/assets/64367635/f601142c-83ea-459c-880c-2b89f67c1854">
 
